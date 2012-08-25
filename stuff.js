@@ -31,7 +31,18 @@ AngryCatsView = Backbone.Marionette.CompositeView.extend({
     template: '#angry_cats-template',
     itemView: AngryCatView,
     
-    appendHtml: function(collectionView, itemView) { collectionView.$('tbody').append(itemView.el); }
+    appendHtml: function(collectionView, itemView) { collectionView.$('tbody').append(itemView.el); },
+    
+    events: {
+        'click .rank_up img': 'rankUp',
+        'click .rank_down img': 'rankDown'
+        },
+    rankUp: function(){
+        console.log('rank up');
+        },
+    rankDown: function(){
+        console.log('rank down');
+        }
     });
     
 MyApp.addInitializer(function(options){
