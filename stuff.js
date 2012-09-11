@@ -29,6 +29,12 @@ AngryCats = Backbone.Collection.extend({
             ++ rank;
             });
             
+         _.each(cats, function(cat){
+            var slug = cat.name.replace(' ','_');
+            // this doesn't fill it in in the template, whyyyy
+            cat.set('slug', slug);
+            });
+            
         this.on('add', function(cat){
             if( !cat.get('rank') ){
                 var error = Error("Cat must have a rank defined before being added to the collection");
